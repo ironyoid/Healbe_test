@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "esp_spi_flash.h": "c",
+        "freertos.h": "c",
+        "device_init.h": "c",
+        "timer.h": "c",
+        "esp_bt.h": "c",
+        "ts06.h": "c",
+        "string_view": "c",
+        "*.ipp": "cpp"
+    },
+    //"terminal.integrated.shell.windows":"C:\\WINDOWS\\System32\\cmd.exe"
+}

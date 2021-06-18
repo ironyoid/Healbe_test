@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "name": "ESP32-Win",
+            "includePath": [
+                "${workspaceRoot}",
+                "${env:IDF_PATH}/components/**",
+                "C:/Users/n.pichugin/.espressif/tools/xtensa-esp32-elf/1.22.0-97-gc752ad5d-5.2.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/5.2.0/include",
+                "D:/Projects/Healbe_test/main/**"
+
+            ],
+            "intelliSenseMode": "clang-x64",
+            "browse": {
+                "path": [
+                    "${workspaceRoot}",
+                    "${workspaceRoot}/main",
+                    "${env:IDF_PATH}/components/**",
+                    "C:/Users/n.pichugin/.espressif/tools/xtensa-esp32-elf/1.22.0-97-gc752ad5d-5.2.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/5.2.0/include",
+                    "D:/Projects/Healbe_test/main/**"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "${workspaceRoot}/.vscode/browse.vc.db"
+            },
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
