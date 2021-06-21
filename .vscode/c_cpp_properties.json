@@ -7,7 +7,6 @@
                 "${env:IDF_PATH}/components/**",
                 "C:/Users/n.pichugin/.espressif/tools/xtensa-esp32-elf/1.22.0-97-gc752ad5d-5.2.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/5.2.0/include",
                 "D:/Projects/Healbe_test/main/**"
-
             ],
             "intelliSenseMode": "clang-x64",
             "browse": {
@@ -22,7 +21,8 @@
                 "databaseFilename": "${workspaceRoot}/.vscode/browse.vc.db"
             },
             "cStandard": "c11",
-            "cppStandard": "c++17"
+            "cppStandard": "c++17",
+            "configurationProvider": "ms-vscode.cmake-tools"
         }
     ],
     "version": 4

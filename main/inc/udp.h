@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    udp.h
   * @author  Pichugin Nickita
-  * @version V0.0.1
+  * @version V1.0.0
   * @date    21.06.2021
   * @brief   This file contains all UDP public functions
   ******************************************************************************
@@ -11,5 +11,10 @@
 #define __UDP_H
 #include "defines.h"
 TaskHandle_t xTask_udp_handle;
-void udp_task(void *pvParameters);
+TaskHandle_t xTask_udp_2_handle;
+
+char udp_ip[64];
+uint16_t udp_port;
+
+void udp_task(void *arg);
 #endif

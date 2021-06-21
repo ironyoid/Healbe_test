@@ -1,8 +1,8 @@
 set(COMPONENT_SRCS 
-"main.c"
-"uart.c"
-"udp.c"
-"wifi.c"
+"src/main.c"
+"src/uart.c"
+"src/udp.c"
+"src/wifi.c"
 )
 set(COMPONENT_ADD_INCLUDEDIRS ".")
 

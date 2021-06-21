@@ -44,7 +44,7 @@
             "type": "shell",
             "args": [
                 "-p",
-                "COM7",
+                "COM38",
                 "flash"
             ],
             "presentation": {
@@ -58,7 +58,7 @@
             "type": "shell",
             "args": [
                 "-p",
-                "COM7",
+                "COM38",
                 "monitor"
             ],
             "presentation": {
@@ -99,7 +99,33 @@
             "problemMatcher": []
         
         },
-        
+        {
+            "label": "flash monitor app",
+            "command": "idf.py",
+            "type": "shell",
+            "args": [
+                "-p",
+                "COM38",
+                "flash",
+                "monitor"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "echo": true
+            },
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceRoot}/neptun2020_relise"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+        },
         {
             "label": "menuconfig",
             "type": "process",

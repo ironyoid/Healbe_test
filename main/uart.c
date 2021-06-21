@@ -1,5 +1,7 @@
 #include "uart.h"
-static const char *TAG = "UART";
+#define DEBUG
+static const char *TAG = "HEALBE_TEST_UART";
+
 /**
  * @brief   Initialisation Tuya module and USART
  * @param   Null
@@ -26,13 +28,13 @@ esp_err_t uart_init()
     ESP_ERROR_CHECK_WITHOUT_ABORT(uart_param_config(UART_NUM_1, &uart_config));
 
     // Set UART1 pins(TX: IO9, RX: I010, RTS: IO18, CTS: IO19)
-    if (uart_set_pin(UART_NUM_1, GPIO_NUM_10, GPIO_NUM_9, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE) != ESP_OK)
+    if (uart_set_pin(UART_NUM_1, GPIO_NUM_9, GPIO_NUM_10, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE) != ESP_OK)
     {
         answear = ESP_FAIL;
     }
     // Install UART driver (we don't need an event queue here)
     // In this example we don't even use a buffer for sending data.
-    if ((answear != ESP_FAIL) && (uart_driver_install(UART_NUM_1, 2048, 2048, 0, NULL, 0) != ESP_OK))
+    if ((answear != ESP_FAIL) && (uart_driver_install(UART_NUM_1, 256, 256, 0, NULL, 0) != ESP_OK))
     {
         answear = ESP_FAIL;
     }
@@ -41,19 +43,40 @@ esp_err_t uart_init()
     {
         answear = ESP_FAIL;
     }
-     receive_data = (int8_t *)malloc(18);
+    receive_data = (int8_t *)malloc(128);
+
+    if (receive_data == NULL)
+    {
+        answear = ESP_FAIL;
+    }
 
     return answear;
 }
 
+/**
+ * @brief   UART task
+ * @param   Null
+ * @return  void
+ * @note    
+ */
 void uart_task(void *arg)
 {
-
-    while(1)
+    uint16_t num_of_bytes_received = 0;
+    while (1)
     {
-        ESP_ERROR_CHECK(uart_get_buffered_data_len(UART_NUM_1, (size_t*)&num_of_bytes_buffer));
-        num_of_bytes_received = uart_read_bytes(UART_NUM_1, (uint8_t *)receive_data, num_of_bytes_buffer, 300 / portTICK_PERIOD_MS); 
-        vTaskDelay(10 / portTICK_PERIOD_MS);
+        ESP_LOGE(TAG, "Block task and wait NUMBER_OF_CHARS in FIFO...");
+        num_of_bytes_received = uart_read_bytes(UART_NUM_1, (uint8_t *)receive_data,
+                                                NUMBER_OF_CHARS, portMAX_DELAY); /* Zero ticks to wait bc we actually 
+                        `                                                               trust the transmitter 
+                                                                                        (never do that in real project) */
+        ESP_LOGW(TAG, "We've got it! Read 18 bytes...");
+        uart_flush(UART_NUM_1);
+#ifdef DEBUG
+        ESP_LOGW(TAG, "Read %d bytes...", num_of_bytes_received);
+        ESP_LOG_BUFFER_HEXDUMP(TAG, receive_data, num_of_bytes_received, ESP_LOG_WARN);
+#endif
+        ESP_LOGI(TAG, "So, now just sleep in 30 seconds...");
+        xSemaphoreGive(xUDP_sync_semaphore); /* Hint to sync UART with UDP task */
+        vTaskDelay(30000 / portTICK_PERIOD_MS);
     }
-
 }

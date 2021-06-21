@@ -1,8 +1,16 @@
+/**
+  ******************************************************************************
+  * @file    wifi.c
+  * @author  Pichugin Nickita
+  * @version V1.0.0
+  * @date    21.06.2021
+  * @brief   This file contains all WiFi routine
+  ******************************************************************************
+  */
 #include "wifi.h"
 #define DEBUG
 static const char *TAG = "HEALBE_TEST_WIFI";
 static int s_retry_num = 0;
-
 /**
  * @brief   Wi-Fi event handler (just from example)
  * @return  void
@@ -60,7 +68,7 @@ void sta_init()
 
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA) );
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config) );
-    ESP_ERROR_CHECK(esp_wifi_start());
+    ESP_ERROR_CHECK(esp_wifi_start() );
 
     ESP_LOGI(TAG, "wifi_init_sta finished.");
     ESP_LOGI(TAG, "connect to ap SSID:%s password:%s",

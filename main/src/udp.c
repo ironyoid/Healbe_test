@@ -1,3 +1,12 @@
+/**
+  ******************************************************************************
+  * @file    udp.c
+  * @author  Pichugin Nickita
+  * @version V1.0.0
+  * @date    21.06.2021
+  * @brief   This file contains all UDP task and SMA filter
+  ******************************************************************************
+  */
 #include "udp.h"
 #include "uart.h"
 static const char *TAG = "HEALBE_TEST_UDP";
@@ -35,7 +44,7 @@ static void sma_filter(int8_t *data)
  * @return  void
  * @note    
  */
-void udp_task(void *pvParameters)
+void udp_task(void *arg)
 {
     int addr_family = 0;
     int ip_protocol = 0;

@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    wifi.h
   * @author  Pichugin Nickita
-  * @version V0.0.1
+  * @version V1.0.0
   * @date    21.06.2021
   * @brief   This file contains all WiFi public functions
   ******************************************************************************
