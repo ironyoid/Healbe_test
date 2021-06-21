@@ -22,3 +22,4 @@ idf.py build
 ## Note
 - We should fill SMA first, that's why firts MOVING_AVERAGE_WINDOW transmission are useless
 - UART code is totally useless in real apps, because it based on assumption that the transmitter is a really good guy who knows timings and send only 18 bytes per 30 seconds
+- The code was written for IDF 3.3.2 because, I didn't want to switch IDF on my work computer :)
