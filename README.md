@@ -13,7 +13,7 @@ There are three main functions:
 - MOVING_AVERAGE_WINDOW - SMA window size
 - UDP_IP - your UDP node IP adress
 - UDP_PORT - your UDP node port
-- 
+
 ## How to build
 Just downolad project and build with
 ```c
