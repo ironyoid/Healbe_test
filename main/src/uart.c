@@ -79,6 +79,6 @@ void uart_task(void *arg)
 #endif
         ESP_LOGI(TAG, "So, now just sleep in 30 seconds...");
         xSemaphoreGive(xUDP_sync_semaphore);
-        vTaskDelay(10000 / portTICK_PERIOD_MS);
+        vTaskDelay(30000 / portTICK_PERIOD_MS);
     }
 }
