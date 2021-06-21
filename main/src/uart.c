@@ -7,7 +7,7 @@
   * @brief   This file contains UART task
   ******************************************************************************
   */
-#include "uart.h"
+#include "inc/uart.h"
 #define DEBUG
 static const char *TAG = "UART";
 /**

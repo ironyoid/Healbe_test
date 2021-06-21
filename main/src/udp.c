@@ -7,8 +7,8 @@
   * @brief   This file contains all UDP task and SMA filter
   ******************************************************************************
   */
-#include "udp.h"
-#include "uart.h"
+#include "inc/udp.h"
+#include "inc/uart.h"
 static const char *TAG = "HEALBE_TEST_UDP";
 #define DEBUG
 
@@ -71,7 +71,6 @@ void udp_task(void *arg)
 #endif
             sma_filter(receive_data);
             ESP_LOG_BUFFER_HEXDUMP(TAG, receive_data, NUMBER_OF_CHARS*sizeof(int8_t), ESP_LOG_WARN);
-            /* Started from data.rx_ctrl and go to mac */
             int err = sendto(sock, receive_data, NUMBER_OF_CHARS*sizeof(int8_t), 0, (struct sockaddr *)&dest_addr, sizeof(dest_addr));
             if (err < 0)
             {

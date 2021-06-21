@@ -30,12 +30,8 @@
 #include <lwip/netdb.h>
 #include "driver/uart.h"
 SemaphoreHandle_t   xUDP_sync_semaphore;
-#define LEN_MAC_ADDR                20
 #define ESP_WIFI_SSID               "Keenetic-5919"     /*Add your AP SSID here */
 #define ESP_WIFI_PASS               "2kcdbL5b"          /*Add your AP password here */
-#define MAX_STA_CONN                16
-#define CSI_QUEUE_LEN               10
-#define MAC_LIST_LEN                16                  /*Maximal number of transmitters */
 #define NUMBER_OF_CHARS             18                  /* Yep, 18 - magic number from desdoc */
 #define MOVING_AVERAGE_WINDOW       5                   /* Yep, I have just decided that */
 #define UDP_IP                      "192.168.88.172"

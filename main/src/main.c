@@ -7,10 +7,10 @@
   * @brief   This file contains all main routine
   ******************************************************************************
   */
-#include "defines.h"
-#include "wifi.h"
-#include "udp.h"
-#include "uart.h"
+#include "inc/defines.h"
+#include "inc/wifi.h"
+#include "inc/udp.h"
+#include "inc/uart.h"
 static const char *TAG = "HEALBE_TEST_MAIN";
 
 /* It's necessary for Wi-Fi */

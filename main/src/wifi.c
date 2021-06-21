@@ -7,7 +7,7 @@
   * @brief   This file contains all WiFi routine
   ******************************************************************************
   */
-#include "wifi.h"
+#include "inc/wifi.h"
 #define DEBUG
 static const char *TAG = "HEALBE_TEST_WIFI";
 static int s_retry_num = 0;
