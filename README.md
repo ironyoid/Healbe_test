@@ -7,8 +7,8 @@ There are three main functions:
 - sma_filter - Simple moving average filter for buffer
 
 ## Settings
-- ESP_WIFI_SSID - your WiWi router SSID
-- ESP_WIFI_PASS - your WiWi router password
+- ESP_WIFI_SSID - your Wi-Fi router SSID
+- ESP_WIFI_PASS - your Wi-Fi router password
 - NUMBER_OF_CHARS - UART data size
 - MOVING_AVERAGE_WINDOW - SMA window size
 - UDP_IP - your UDP node IP adress
